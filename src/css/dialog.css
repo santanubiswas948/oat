@@ -1,0 +1,45 @@
+@layer components {
+  dialog {
+    position: fixed;
+    inset: 0;
+    z-index: var(--lt-z-modal);
+
+    width: 100%;
+    max-width: 32rem;
+    max-height: 85vh;
+    margin: auto;
+    padding: 0;
+
+    background-color: var(--lt-background);
+    border: 1px solid var(--lt-border);
+    border-radius: var(--lt-radius-lg);
+    box-shadow: var(--lt-shadow-lg);
+    overflow: hidden;
+
+    &::backdrop { background-color: rgb(0 0 0 / 0.8); }
+
+    & > header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--lt-space-1);
+      padding: var(--lt-space-6);
+      padding-bottom: 0;
+
+      & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 { margin-bottom: 0; }
+      & > p { font-size: var(--lt-text-sm); color: var(--lt-muted-foreground); margin-bottom: 0; }
+    }
+
+    & > p, & > div, & > section {
+      padding: var(--lt-space-6);
+      overflow-y: auto;
+    }
+
+    & > footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--lt-space-2);
+      padding: var(--lt-space-6);
+      padding-top: 0;
+    }
+  }
+}

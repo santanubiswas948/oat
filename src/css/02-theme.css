@@ -1,0 +1,116 @@
+@layer theme {
+  :root {
+    --lt-background: rgb(255 255 255);
+    --lt-foreground: rgb(9 9 11);
+    --lt-card: rgb(255 255 255);
+    --lt-card-foreground: rgb(9 9 11);
+    --lt-primary: rgb(24 24 27);
+    --lt-primary-foreground: rgb(250 250 250);
+    --lt-secondary: rgb(244 244 245);
+    --lt-secondary-foreground: rgb(24 24 27);
+    --lt-muted: rgb(244 244 245);
+    --lt-muted-foreground: rgb(113 113 122);
+    --lt-accent: rgb(244 244 245);
+    --lt-accent-foreground: rgb(24 24 27);
+    --lt-destructive: rgb(239 68 68);
+    --lt-destructive-foreground: rgb(250 250 250);
+    --lt-success: rgb(34 197 94);
+    --lt-success-foreground: rgb(250 250 250);
+    --lt-warning: rgb(234 179 8);
+    --lt-warning-foreground: rgb(9 9 11);
+    --lt-border: rgb(228 228 231);
+    --lt-input: rgb(228 228 231);
+    --lt-ring: rgb(24 24 27);
+
+    --lt-space-1: 0.25rem;
+    --lt-space-2: 0.5rem;
+    --lt-space-3: 0.75rem;
+    --lt-space-4: 1rem;
+    --lt-space-5: 1.25rem;
+    --lt-space-6: 1.5rem;
+    --lt-space-8: 2rem;
+    --lt-space-10: 2.5rem;
+    --lt-space-12: 3rem;
+
+    --lt-radius-sm: 0.125rem;
+    --lt-radius: 0.375rem;
+    --lt-radius-md: 0.5rem;
+    --lt-radius-lg: 0.75rem;
+    --lt-radius-full: 9999px;
+
+    --lt-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --lt-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --lt-text-xs: 0.75rem;
+    --lt-text-sm: 0.875rem;
+    --lt-text-base: 1rem;
+    --lt-text-lg: 1.125rem;
+    --lt-text-xl: 1.25rem;
+    --lt-text-2xl: 1.5rem;
+    --lt-text-3xl: 1.875rem;
+    --lt-text-4xl: 2.25rem;
+
+    --lt-leading-tight: 1.25;
+    --lt-leading-normal: 1.5;
+    --lt-tracking-tight: -0.025em;
+
+    --lt-font-normal: 400;
+    --lt-font-medium: 500;
+    --lt-font-semibold: 600;
+    --lt-font-bold: 700;
+
+    --lt-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --lt-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --lt-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --lt-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    --lt-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --lt-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --lt-z-dropdown: 50;
+    --lt-z-modal: 200;
+    --lt-z-toast: 300;
+  }
+
+  [data-theme="dark"], .dark {
+    --lt-background: rgb(9 9 11);
+    --lt-foreground: rgb(250 250 250);
+    --lt-card: rgb(9 9 11);
+    --lt-card-foreground: rgb(250 250 250);
+    --lt-primary: rgb(250 250 250);
+    --lt-primary-foreground: rgb(24 24 27);
+    --lt-secondary: rgb(39 39 42);
+    --lt-secondary-foreground: rgb(250 250 250);
+    --lt-muted: rgb(39 39 42);
+    --lt-muted-foreground: rgb(161 161 170);
+    --lt-accent: rgb(39 39 42);
+    --lt-accent-foreground: rgb(250 250 250);
+    --lt-destructive: rgb(127 29 29);
+    --lt-destructive-foreground: rgb(250 250 250);
+    --lt-border: rgb(39 39 42);
+    --lt-input: rgb(39 39 42);
+    --lt-ring: rgb(212 212 216);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --lt-background: rgb(9 9 11);
+      --lt-foreground: rgb(250 250 250);
+      --lt-card: rgb(9 9 11);
+      --lt-card-foreground: rgb(250 250 250);
+      --lt-primary: rgb(250 250 250);
+      --lt-primary-foreground: rgb(24 24 27);
+      --lt-secondary: rgb(39 39 42);
+      --lt-secondary-foreground: rgb(250 250 250);
+      --lt-muted: rgb(39 39 42);
+      --lt-muted-foreground: rgb(161 161 170);
+      --lt-accent: rgb(39 39 42);
+      --lt-accent-foreground: rgb(250 250 250);
+      --lt-destructive: rgb(127 29 29);
+      --lt-destructive-foreground: rgb(250 250 250);
+      --lt-border: rgb(39 39 42);
+      --lt-input: rgb(39 39 42);
+      --lt-ring: rgb(212 212 216);
+    }
+  }
+}

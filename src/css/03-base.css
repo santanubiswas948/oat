@@ -1,0 +1,83 @@
+@layer base {
+  body {
+    font-family: var(--lt-font-sans);
+    font-size: var(--lt-text-base);
+    line-height: var(--lt-leading-normal);
+    color: var(--lt-foreground);
+    background-color: var(--lt-background);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--lt-font-semibold);
+    line-height: var(--lt-leading-tight);
+    letter-spacing: var(--lt-tracking-tight);
+  }
+
+  h1 { font-size: var(--lt-text-4xl); margin-bottom: var(--lt-space-6); }
+  h2 { font-size: var(--lt-text-3xl); margin-bottom: var(--lt-space-5); }
+  h3 { font-size: var(--lt-text-2xl); margin-bottom: var(--lt-space-4); }
+  h4 { font-size: var(--lt-text-xl); margin-bottom: var(--lt-space-3); }
+  h5 { font-size: var(--lt-text-lg); margin-bottom: var(--lt-space-2); }
+  h6 { font-size: var(--lt-text-base); margin-bottom: var(--lt-space-2); }
+
+  p {
+    margin-bottom: var(--lt-space-4);
+    &:last-child { margin-bottom: 0; }
+  }
+
+  a {
+    color: var(--lt-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--lt-transition-fast);
+    &:hover { color: rgb(from var(--lt-primary) r g b / 0.8); }
+  }
+
+  strong, b { font-weight: var(--lt-font-semibold); }
+  em, i { font-style: italic; }
+  small { font-size: var(--lt-text-sm); }
+
+  code {
+    font-family: var(--lt-font-mono);
+    font-size: 0.875em;
+    padding: 0.125rem 0.25rem;
+    background-color: var(--lt-muted);
+    border-radius: var(--lt-radius-sm);
+  }
+
+  pre {
+    font-family: var(--lt-font-mono);
+    font-size: var(--lt-text-sm);
+    padding: var(--lt-space-4);
+    background-color: var(--lt-muted);
+    border-radius: var(--lt-radius);
+    overflow-x: auto;
+    margin-bottom: var(--lt-space-4);
+    code { padding: 0; background: none; border-radius: 0; }
+  }
+
+  blockquote {
+    border-left: 4px solid var(--lt-border);
+    padding-left: var(--lt-space-4);
+    margin: var(--lt-space-4) 0;
+    color: var(--lt-muted-foreground);
+    font-style: italic;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--lt-border);
+    margin: var(--lt-space-8) 0;
+  }
+
+  ul, ol { padding-left: var(--lt-space-6); margin-bottom: var(--lt-space-4); }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+  li { margin-bottom: var(--lt-space-1); }
+
+  mark {
+    background-color: rgb(from var(--lt-warning) r g b / 0.3);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--lt-radius-sm);
+  }
+}

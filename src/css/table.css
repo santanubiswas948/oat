@@ -1,0 +1,17 @@
+@layer base {
+  table { width: 100%; font-size: var(--lt-text-sm); }
+  thead { border-bottom: 1px solid var(--lt-border); }
+  th {
+    padding: var(--lt-space-3) var(--lt-space-4);
+    text-align: left;
+    font-weight: var(--lt-font-medium);
+    color: var(--lt-muted-foreground);
+  }
+  td { padding: var(--lt-space-3) var(--lt-space-4); vertical-align: middle; }
+  tbody tr {
+    border-bottom: 1px solid var(--lt-border);
+    transition: background-color var(--lt-transition-fast);
+    &:last-child { border-bottom: none; }
+    &:hover { background-color: rgb(from var(--lt-muted) r g b / 0.5); }
+  }
+}

@@ -1,0 +1,21 @@
+@layer components {
+  article, .card {
+    background-color: var(--lt-card);
+    color: var(--lt-card-foreground);
+    border: 1px solid var(--lt-border);
+    border-radius: var(--lt-radius-lg);
+    overflow: hidden;
+
+    & > header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--lt-space-1);
+      padding: var(--lt-space-6);
+      & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 { margin-bottom: 0; }
+      & > p { font-size: var(--lt-text-sm); color: var(--lt-muted-foreground); margin-bottom: 0; }
+    }
+
+    & > p, & > div:not([role]) { padding: var(--lt-space-6); padding-top: 0; }
+    & > footer { display: flex; align-items: center; gap: var(--lt-space-2); padding: var(--lt-space-6); padding-top: 0; }
+  }
+}

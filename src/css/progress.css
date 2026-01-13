@@ -1,0 +1,42 @@
+@layer base {
+  progress {
+    appearance: none;
+    width: 100%;
+    height: 0.5rem;
+    border: none;
+    border-radius: var(--lt-radius-full);
+    overflow: hidden;
+    background-color: var(--lt-muted);
+
+    &::-webkit-progress-bar {
+      background-color: var(--lt-muted);
+      border-radius: var(--lt-radius-full);
+    }
+
+    &::-webkit-progress-value {
+      background-color: var(--lt-primary);
+      border-radius: var(--lt-radius-full);
+      transition: width var(--lt-transition);
+    }
+
+    &::-moz-progress-bar {
+      background-color: var(--lt-primary);
+      border-radius: var(--lt-radius-full);
+    }
+  }
+}
+
+@layer components {
+  .spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--lt-muted);
+    border-top-color: var(--lt-primary);
+    border-radius: var(--lt-radius-full);
+    animation: lt-spin 0.6s linear infinite;
+    &.sm { width: 1rem; height: 1rem; }
+    &.lg { width: 2rem; height: 2rem; border-width: 3px; }
+  }
+
+  @keyframes lt-spin { to { transform: rotate(360deg); } }
+}

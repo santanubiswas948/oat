@@ -1,0 +1,32 @@
+@layer components {
+  lt-toast,
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--lt-space-3);
+    padding: var(--lt-space-4);
+
+    background-color: var(--lt-background);
+    color: var(--lt-foreground);
+    border: 1px solid var(--lt-border);
+    border-radius: var(--lt-radius);
+    box-shadow: var(--lt-shadow-lg);
+    max-width: 24rem;
+
+    &[data-variant="success"] { border-color: var(--lt-success); }
+    &[data-variant="error"], &[data-variant="destructive"] { border-color: var(--lt-destructive); }
+    &[data-variant="warning"] { border-color: var(--lt-warning); }
+  }
+
+  lt-toast-container,
+  .toast-container {
+    position: fixed;
+    bottom: var(--lt-space-4);
+    right: var(--lt-space-4);
+    z-index: var(--lt-z-toast);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--lt-space-2);
+  }
+}

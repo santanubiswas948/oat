@@ -1,0 +1,65 @@
+@layer base {
+  button, [type="submit"], [type="reset"], [type="button"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--lt-space-2);
+    height: 2.5rem;
+    padding: 0 var(--lt-space-4);
+    font-size: var(--lt-text-sm);
+    font-weight: var(--lt-font-medium);
+    line-height: 1;
+    white-space: nowrap;
+    background-color: var(--lt-primary);
+    color: var(--lt-primary-foreground);
+    border-radius: var(--lt-radius);
+    transition: background-color var(--lt-transition-fast), opacity var(--lt-transition-fast);
+
+    &:hover { background-color: rgb(from var(--lt-primary) r g b / 0.9); }
+    &:focus-visible { outline: 2px solid var(--lt-ring); outline-offset: 2px; }
+    &:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    &.secondary {
+      background-color: var(--lt-secondary);
+      color: var(--lt-secondary-foreground);
+      &:hover { background-color: rgb(from var(--lt-secondary) r g b / 0.8); }
+    }
+
+    &.outline {
+      background-color: transparent;
+      color: var(--lt-foreground);
+      border: 1px solid var(--lt-border);
+      &:hover { background-color: var(--lt-accent); }
+    }
+
+    &.ghost {
+      background-color: transparent;
+      color: var(--lt-foreground);
+      &:hover { background-color: var(--lt-accent); }
+    }
+
+    &.destructive {
+      background-color: var(--lt-destructive);
+      color: var(--lt-destructive-foreground);
+      &:hover { background-color: rgb(from var(--lt-destructive) r g b / 0.9); }
+    }
+
+    &.sm { height: 2rem; padding: 0 var(--lt-space-3); font-size: var(--lt-text-xs); }
+    &.lg { height: 3rem; padding: 0 var(--lt-space-6); font-size: var(--lt-text-base); }
+    &.icon { width: 2.5rem; padding: 0; }
+    &.icon.sm { width: 2rem; }
+    &.icon.lg { width: 3rem; }
+  }
+}
+
+@layer components {
+  .btn-group {
+    display: inline-flex;
+    & > button, & > [type="button"], & > [type="submit"], & > [type="reset"] {
+      border-radius: 0;
+      &:first-child { border-top-left-radius: var(--lt-radius); border-bottom-left-radius: var(--lt-radius); }
+      &:last-child { border-top-right-radius: var(--lt-radius); border-bottom-right-radius: var(--lt-radius); }
+      &:not(:last-child) { border-right: 1px solid rgb(from var(--lt-primary-foreground) r g b / 0.2); }
+    }
+  }
+}

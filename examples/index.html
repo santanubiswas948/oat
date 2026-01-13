@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LongTerm UI - Component Library</title>
+  <link rel="stylesheet" href="../dist/longterm.css">
+  <script src="../dist/longterm.js" defer></script>
+  <style>
+    /* Demo-specific styles */
+    .demo-section {
+      margin-bottom: var(--lt-space-12);
+      padding-bottom: var(--lt-space-8);
+      border-bottom: 1px solid rgb(var(--lt-border));
+    }
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--lt-space-4);
+      align-items: center;
+      margin-bottom: var(--lt-space-4);
+    }
+    .demo-grid {
+      display: grid;
+      gap: var(--lt-space-4);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .theme-toggle {
+      position: fixed;
+      top: var(--lt-space-4);
+      right: var(--lt-space-4);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle outline" onclick="toggleTheme()">Toggle Dark Mode</button>
+
+  <div class="container" style="padding: var(--lt-space-8) var(--lt-space-4);">
+    <h1>LongTerm UI</h1>
+    <p>A minimal, semantic-first UI component library with zero dependencies.</p>
+
+    <!-- Typography -->
+    <section class="demo-section">
+      <h2>Typography</h2>
+      <p>Semantic HTML elements are styled by default. No classes needed.</p>
+
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+
+      <p>This is a paragraph with <strong>bold text</strong>, <em>italic text</em>, and <a href="#">a link</a>.</p>
+
+      <p>Here's some <code>inline code</code> and a code block:</p>
+
+      <pre><code>function hello() {
+  console.log('Hello, World!');
+}</code></pre>
+
+      <blockquote>
+        This is a blockquote. It's styled automatically.
+      </blockquote>
+
+      <hr>
+
+      <ul>
+        <li>Unordered list item 1</li>
+        <li>Unordered list item 2</li>
+        <li>Unordered list item 3</li>
+      </ul>
+
+      <ol>
+        <li>Ordered list item 1</li>
+        <li>Ordered list item 2</li>
+        <li>Ordered list item 3</li>
+      </ol>
+    </section>
+
+    <!-- Buttons -->
+    <section class="demo-section">
+      <h2>Buttons</h2>
+      <p>All <code>&lt;button&gt;</code> elements are styled. Add classes for variants.</p>
+
+      <div class="demo-row">
+        <button>Primary</button>
+        <button class="secondary">Secondary</button>
+        <button class="outline">Outline</button>
+        <button class="ghost">Ghost</button>
+        <button class="destructive">Destructive</button>
+        <button disabled>Disabled</button>
+      </div>
+
+      <h3>Sizes</h3>
+      <div class="demo-row">
+        <button class="sm">Small</button>
+        <button>Default</button>
+        <button class="lg">Large</button>
+      </div>
+
+      <h3>Button Group</h3>
+      <div class="btn-group">
+        <button class="outline">Left</button>
+        <button class="outline">Center</button>
+        <button class="outline">Right</button>
+      </div>
+    </section>
+
+    <!-- Form Elements -->
+    <section class="demo-section">
+      <h2>Form Elements</h2>
+      <p>Form elements are styled by default using semantic HTML.</p>
+
+      <form style="max-width: 400px;">
+        <label>
+          Name
+          <input type="text" placeholder="Enter your name">
+        </label>
+
+        <label>
+          Email
+          <input type="email" placeholder="you@example.com">
+        </label>
+
+        <label>
+          Password
+          <input type="password" placeholder="Password">
+        </label>
+
+        <label>
+          Country
+          <select>
+            <option value="">Select a country</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ca">Canada</option>
+          </select>
+        </label>
+
+        <label>
+          Message
+          <textarea placeholder="Your message..."></textarea>
+        </label>
+
+        <label>
+          <input type="checkbox"> I agree to the terms and conditions
+        </label>
+
+        <fieldset>
+          <legend>Preference</legend>
+          <label><input type="radio" name="pref"> Option A</label>
+          <label><input type="radio" name="pref"> Option B</label>
+          <label><input type="radio" name="pref"> Option C</label>
+        </fieldset>
+
+        <label>
+          Volume
+          <input type="range" min="0" max="100" value="50">
+        </label>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <h3>Input Group</h3>
+      <div class="input-group" style="max-width: 400px;">
+        <span>https://</span>
+        <input type="text" placeholder="example.com">
+        <button>Go</button>
+      </div>
+
+      <h3>Field with Error</h3>
+      <div class="field" style="max-width: 400px;">
+        <label for="error-input">Email</label>
+        <input type="email" id="error-input" value="invalid-email" aria-invalid="true">
+        <div class="error">Please enter a valid email address.</div>
+      </div>
+    </section>
+
+    <!-- Tables -->
+    <section class="demo-section">
+      <h2>Tables</h2>
+      <p>Tables are styled automatically.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alice Johnson</td>
+            <td>alice@example.com</td>
+            <td>Admin</td>
+            <td><span class="badge success">Active</span></td>
+          </tr>
+          <tr>
+            <td>Bob Smith</td>
+            <td>bob@example.com</td>
+            <td>Editor</td>
+            <td><span class="badge">Active</span></td>
+          </tr>
+          <tr>
+            <td>Carol White</td>
+            <td>carol@example.com</td>
+            <td>Viewer</td>
+            <td><span class="badge secondary">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Cards -->
+    <section class="demo-section">
+      <h2>Cards</h2>
+      <p>Use <code>&lt;article&gt;</code> for semantic cards.</p>
+
+      <div class="demo-grid">
+        <article>
+          <header>
+            <h3>Card Title</h3>
+            <p>Card description goes here.</p>
+          </header>
+          <p>This is the card content. It can contain any HTML.</p>
+          <footer>
+            <button class="outline">Cancel</button>
+            <button>Save</button>
+          </footer>
+        </article>
+
+        <article>
+          <header>
+            <h3>Another Card</h3>
+            <p>With different content.</p>
+          </header>
+          <p>Cards automatically style their header, content, and footer sections.</p>
+          <footer>
+            <button>Action</button>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- Alerts -->
+    <section class="demo-section">
+      <h2>Alerts</h2>
+      <p>Use <code>role="alert"</code> for accessible alerts.</p>
+
+      <div role="alert" style="margin-bottom: var(--lt-space-4);">
+        <strong>Default Alert</strong> - This is a default alert message.
+      </div>
+
+      <div role="alert" data-variant="success" style="margin-bottom: var(--lt-space-4);">
+        <strong>Success!</strong> - Your changes have been saved.
+      </div>
+
+      <div role="alert" data-variant="warning" style="margin-bottom: var(--lt-space-4);">
+        <strong>Warning!</strong> - Please review before continuing.
+      </div>
+
+      <div role="alert" data-variant="error">
+        <strong>Error!</strong> - Something went wrong.
+      </div>
+    </section>
+
+    <!-- Badges -->
+    <section class="demo-section">
+      <h2>Badges</h2>
+      <p>Use the <code>.badge</code> class for small labels.</p>
+
+      <div class="demo-row">
+        <span class="badge">Default</span>
+        <span class="badge secondary">Secondary</span>
+        <span class="badge outline">Outline</span>
+        <span class="badge destructive">Destructive</span>
+        <span class="badge success">Success</span>
+        <span class="badge warning">Warning</span>
+      </div>
+    </section>
+
+    <!-- Progress & Spinner -->
+    <section class="demo-section">
+      <h2>Progress & Spinner</h2>
+
+      <h3>Progress Bar</h3>
+      <progress value="60" max="100" style="margin-bottom: var(--lt-space-4);"></progress>
+      <progress value="30" max="100" style="margin-bottom: var(--lt-space-4);"></progress>
+      <progress value="90" max="100"></progress>
+
+      <h3>Spinner</h3>
+      <div class="demo-row">
+        <div class="spinner sm"></div>
+        <div class="spinner"></div>
+        <div class="spinner lg"></div>
+      </div>
+    </section>
+
+    <!-- Accordion -->
+    <section class="demo-section">
+      <h2>Accordion</h2>
+      <p>Uses native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code>.</p>
+
+      <details>
+        <summary>What is LongTerm UI?</summary>
+        <p>LongTerm UI is a minimal, semantic-first UI component library with zero dependencies. It uses modern CSS features like cascade layers, container queries, and CSS custom properties.</p>
+      </details>
+
+      <details>
+        <summary>How do I use it?</summary>
+        <p>Just include the CSS and JS files, then write semantic HTML. Most elements are styled by default without needing classes.</p>
+      </details>
+
+      <details>
+        <summary>Is it accessible?</summary>
+        <p>Yes! LongTerm UI prioritizes semantic HTML and ARIA attributes for accessibility. Keyboard navigation is fully supported.</p>
+      </details>
+    </section>
+
+    <!-- Tabs -->
+    <section class="demo-section">
+      <h2>Tabs</h2>
+      <p>Use ARIA roles for tabs. The <code>&lt;lt-tabs&gt;</code> component handles keyboard navigation.</p>
+
+      <lt-tabs>
+        <div role="tablist">
+          <button role="tab">Account</button>
+          <button role="tab">Password</button>
+          <button role="tab">Notifications</button>
+        </div>
+        <div role="tabpanel">
+          <h3>Account Settings</h3>
+          <p>Manage your account information here.</p>
+        </div>
+        <div role="tabpanel">
+          <h3>Password Settings</h3>
+          <p>Change your password here.</p>
+        </div>
+        <div role="tabpanel">
+          <h3>Notification Settings</h3>
+          <p>Configure your notification preferences.</p>
+        </div>
+      </lt-tabs>
+    </section>
+
+    <!-- Dialog -->
+    <section class="demo-section">
+      <h2>Dialog</h2>
+      <p>Uses native <code>&lt;dialog&gt;</code> element with trigger handling.</p>
+
+      <lt-dialog>
+        <button data-trigger>Open Dialog</button>
+        <dialog>
+          <header>
+            <h2>Dialog Title</h2>
+            <p>This is a dialog description.</p>
+          </header>
+          <div>
+            <p>Dialog content goes here. You can put any HTML inside.</p>
+            <p>Click outside or press Escape to close.</p>
+          </div>
+          <footer>
+            <button class="outline" data-close>Cancel</button>
+            <button data-close>Confirm</button>
+          </footer>
+        </dialog>
+      </lt-dialog>
+    </section>
+
+    <!-- Dropdown -->
+    <section class="demo-section">
+      <h2>Dropdown</h2>
+      <p>Menu with keyboard navigation.</p>
+
+      <lt-dropdown>
+        <button data-trigger class="outline">
+          Options
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+        <div data-dropdown-menu hidden>
+          <button data-dropdown-item data-value="profile">Profile</button>
+          <button data-dropdown-item data-value="settings">Settings</button>
+          <button data-dropdown-item data-value="help">Help</button>
+          <hr style="margin: var(--lt-space-1) 0;">
+          <button data-dropdown-item data-value="logout">Logout</button>
+        </div>
+      </lt-dropdown>
+    </section>
+
+    <!-- Toast -->
+    <section class="demo-section">
+      <h2>Toast</h2>
+      <p>Auto-dismissing notifications.</p>
+
+      <div class="demo-row">
+        <button onclick="showToast('default')">Default Toast</button>
+        <button onclick="showToast('success')" class="outline">Success Toast</button>
+        <button onclick="showToast('error')" class="outline">Error Toast</button>
+        <button onclick="showToast('warning')" class="outline">Warning Toast</button>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="demo-section">
+      <h2>Grid System</h2>
+      <p>12-column grid with container query breakpoints.</p>
+
+      <div class="container" style="background: rgb(var(--lt-muted)); padding: var(--lt-space-4); border-radius: var(--lt-radius);">
+        <div class="row">
+          <div class="col col-12 col-md-6 col-lg-4" style="background: rgb(var(--lt-primary)); color: rgb(var(--lt-primary-foreground)); padding: var(--lt-space-4); border-radius: var(--lt-radius);">
+            col-12 col-md-6 col-lg-4
+          </div>
+          <div class="col col-12 col-md-6 col-lg-4" style="background: rgb(var(--lt-primary)); color: rgb(var(--lt-primary-foreground)); padding: var(--lt-space-4); border-radius: var(--lt-radius);">
+            col-12 col-md-6 col-lg-4
+          </div>
+          <div class="col col-12 col-lg-4" style="background: rgb(var(--lt-primary)); color: rgb(var(--lt-primary-foreground)); padding: var(--lt-space-4); border-radius: var(--lt-radius);">
+            col-12 col-lg-4
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Toast Container -->
+  <lt-toast-container></lt-toast-container>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Toast demo
+    function showToast(variant) {
+      const container = document.querySelector('lt-toast-container');
+      const messages = {
+        default: 'This is a default notification.',
+        success: 'Your changes have been saved!',
+        error: 'Something went wrong. Please try again.',
+        warning: 'Please review before continuing.'
+      };
+      container.show({
+        message: messages[variant] || messages.default,
+        variant: variant === 'default' ? '' : variant
+      });
+    }
+
+    // Log dropdown selections
+    document.querySelector('lt-dropdown').addEventListener('lt-dropdown-select', (e) => {
+      console.log('Selected:', e.detail.value);
+    });
+  </script>
+</body>
+</html>
