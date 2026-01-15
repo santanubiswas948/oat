@@ -17,7 +17,7 @@ class LMDemo extends LMBase {
           <button role="tab">Code</button>
         </div>
         <div role="tabpanel"></div>
-        <div role="tabpanel"><pre><code>${this.escapeHTML(formattedHTML)}</code></pre></div>
+        <div role="tabpanel"><pre><code>${this.highlightHTML(formattedHTML)}</code></pre></div>
       </lm-tabs>
     `;
 
@@ -25,11 +25,23 @@ class LMDemo extends LMBase {
     this.$('[role="tabpanel"]').appendChild(template.content.cloneNode(true));
   }
 
-  escapeHTML(str) {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+  highlightHTML(str) {
+    // Super-hacky syntax highlighter for HTML.
+    const hl = (c, s) => `<span style="color:${c}">${s}</span>`;
+    return str.replace(
+      /(<\/?)(\w+)([^>]*)(\/?>)|([^<]+)/g,
+      (_, open, tag, attrs, close, text) => {
+        if (text) return text;
+        const a = attrs.replace(
+          /([\w-]+)="([^"]*)"/g,
+          (_, n, v) => hl('var(--lm-muted-foreground)', n) + '=' + hl('var(--lm-success)', `"${v}"`)
+        );
+
+        return hl('var(--lm-faint-foreground)', open.replace('<', '&lt;')) +
+          hl('var(--lm-foreground)', tag) + a +
+          hl('var(--lm-faint-foreground)', close.replace('>', '&gt;'));
+      }
+    );
   }
 
   formatHTML(html) {

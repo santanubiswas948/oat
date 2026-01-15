@@ -82,7 +82,7 @@
     font-family: var(--lm-font-mono);
     font-size: 0.875em;
     padding: 0.125rem 0.25rem;
-    background-color: var(--lm-muted);
+    background-color: var(--lm-faint);
     border-radius: var(--lm-radius-sm);
   }
 
@@ -90,7 +90,7 @@
     font-family: var(--lm-font-mono);
     font-size: var(--lm-text-sm);
     padding: var(--lm-space-4);
-    background-color: var(--lm-muted);
+    background-color: var(--lm-faint);
     border-radius: var(--lm-radius);
     overflow-x: auto;
     margin-bottom: var(--lm-space-4);
