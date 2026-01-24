@@ -18,12 +18,25 @@
   .text-left { text-align: left; }
   .text-center { text-align: center; }
   .text-right { text-align: right; }
+  .text-light { color: var(--muted-foreground); }
 
   .flex { display: flex; }
   .flex-col { flex-direction: column; }
   .items-center { align-items: center; }
   .justify-center { justify-content: center; }
   .justify-between { justify-content: space-between; }
+
+  /* Bootstrap inspired. */
+  .hstack {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .vstack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
 
   .gap-1 { gap: var(--space-1); }
   .gap-2 { gap: var(--space-2); }
