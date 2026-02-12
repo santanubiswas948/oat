@@ -60,6 +60,8 @@ size:
 publish: clean dist
 	@cp -r src/css dist/css
 	@cp -r src/js dist/js
+	@cp README.md dist/README.md
+	@cp LICENSE dist/LICENSE
 	@VERSION=$$(git describe --tags --abbrev=0 | sed 's/^v//') && \
 		sed 's/"version-0.0.0"/"'"$$VERSION"'"/' package.json > dist/package.json
 	@cd dist && npm publish --access public
