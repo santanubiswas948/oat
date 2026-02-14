@@ -7,7 +7,7 @@
  * <ot-dropdown>
  *   <button popovertarget="menu-id">Options</button>
  *   <menu popover id="menu-id">
- *     <button role="menuitem" data-value="val1>Item 1</button>
+ *     <button role="menuitem" data-value="val1">Item 1</button>
  *     <button role="menuitem" data-value="val2">Item 2</button>
  *   </menu>
  * </ot-dropdown>
