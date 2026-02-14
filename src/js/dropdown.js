@@ -1,15 +1,23 @@
 /**
  * oat - Dropdown Component
  * Provides positioning, keyboard navigation, and ARIA state management.
- *
+ * Emits ot-change event on menu item click.
+ * 
  * Usage:
  * <ot-dropdown>
  *   <button popovertarget="menu-id">Options</button>
  *   <menu popover id="menu-id">
- *     <button role="menuitem">Item 1</button>
- *     <button role="menuitem">Item 2</button>
+ *     <button role="menuitem" data-value="val1>Item 1</button>
+ *     <button role="menuitem" data-value="val2">Item 2</button>
  *   </menu>
  * </ot-dropdown>
+ * 
+ * Events:
+ * ot-change emits with detail: { type, label, value, index }
+ * - type: 'action'
+ * - label: text content of clicked item
+ * - value: data-value attribute (if present)
+ * - index: zero-based position in menu
  */
 
 class OtDropdown extends OtBase {
@@ -25,7 +33,7 @@ class OtDropdown extends OtBase {
 
     this.#menu.addEventListener('toggle', this);
     this.#menu.addEventListener('keydown', this);
-
+    this.#menu.addEventListener('click', this);
     this.#position = () => {
       // Position has to be calculated and applied manually because
       // popover positioning is like fixed, relative to the window.
@@ -34,6 +42,22 @@ class OtDropdown extends OtBase {
       this.#menu.style.left = `${rect.left}px`;
     };
   }
+
+  onclick(e) {
+    e.preventDefault();
+    if (!e.target.matches('[role="menuitem"]')) return;
+    const value = e.target.getAttribute('data-value');
+    const items = this.$$('[role="menuitem"]');
+    const index = items.indexOf(e.target);
+    
+    this.emit('ot-change', { 
+      type: 'action', 
+      label: e.target.textContent,
+      value,
+      index 
+    });
+  }
+
 
   ontoggle(e) {
     if (e.newState === 'open') {
@@ -68,6 +92,11 @@ class OtDropdown extends OtBase {
 
   cleanup() {
     window.removeEventListener('scroll', this.#position, true);
+    if (this.#menu) {
+      this.#menu.removeEventListener('toggle', this);
+      this.#menu.removeEventListener('keydown', this);
+      this.#menu.removeEventListener('click', this);
+    }
   }
 }
 
