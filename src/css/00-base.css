@@ -108,7 +108,7 @@
   code {
     font-family: var(--font-mono);
     font-size: 0.875em;
-    padding: 0.125rem 0.25rem;
+    padding: var(--space-0_5) var(--space-1);
     background-color: var(--faint);
     border-radius: var(--radius-small);
   }
@@ -161,7 +161,7 @@
 
   mark {
     background-color: rgb(from var(--warning) r g b / 0.3);
-    padding: 0.125rem 0.25rem;
+    padding: var(--space-0_5) var(--space-1);
     border-radius: var(--radius-small);
   }
 
